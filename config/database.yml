@@ -83,3 +83,8 @@ production:
   database: aircastle_production
   username: aircastle
   password: <%= ENV['AIRCASTLE_DATABASE_PASSWORD'] %>
+
+  production:
+  <<: *default
+  url: <%= ENV['POSTGRESQL_ADDON_URI'] %>touch clevercloud/ruby.json
+
