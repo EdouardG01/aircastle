@@ -6,6 +6,8 @@ Rails.application.configure do
   # since you don't have to restart the web server when you make code changes.
   config.cache_classes = false
 
+  config.active_storage.service = :cloudinary
+
   # Do not eager load code on boot.
   config.eager_load = false
 
@@ -54,7 +56,7 @@ Rails.application.configure do
   config.assets.quiet = true
 
   # config devise
-  config . action_mailer . default_url_options = { hôte : 'localhost' , port : 3000 }
+  config . action_mailer . default_url_options = { host: 'localhost' , port: 3000 }
 
   # Raises error for missing translations.
   # config.action_view.raise_on_missing_translations = true
