@@ -7,27 +7,21 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-puts 'Creating 25 fake castels...'
 25.times do
   castle = Castle.new(
     name:  Faker::Games::Pokemon.name,
     description: Faker::String.random,
     price: "#{Faker::Number.decimal(l_digits: 2)}€"
-
   )
   castle.save!
 end
-puts 'Finished creating 25 fake castels!'
 
-puts 'Creating 50 fake users...'
 50.times do
   user = User.new(
     first_name: Faker::Name.first_name,
     last_name: Faker::Name.last_name ,
     email: Faker::Internet.email,
-    address: Faker::Address.city,
-
+    address: Faker::Address.city
   )
   user.save!
 end
-puts 'Finished creating 50 fake users!'
