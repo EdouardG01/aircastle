@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :reservations, only: [:index] do
     member do
-      get :decline
-      get :accept
+      patch :decline
+      patch :accept
     end
   end
 
