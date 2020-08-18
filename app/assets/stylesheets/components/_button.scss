@@ -1,0 +1,17 @@
+.btn-outline-primary {
+  color: white;
+  border: 1px solid #DCEBF9;
+  background-color:rgba(185, 215, 243,.8);
+  padding: 8px 24px;
+  border-radius: 50px;
+  font-weight: lighter;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.btn-outline-primary:hover {
+  opacity: 1;
+  color: white;
+  border: 1px solid #DCEBF9;
+  background-color: #DCEBF9;
+}

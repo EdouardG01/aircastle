@@ -1,3 +1,17 @@
-<h1>Pages#home</h1>
+<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://api.pexels.com/v1);">
+  <div class="container">
+    <h1>The best place to find your bouncy castle</h1>
+    <%= link_to "View all Castles", castles_path, class: "btn btn-outline-primary btn-lg" %>
+  </div>
+</div>
 
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="cards mx-5">
+  <% @castles.each do |castle| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= castle.name %>
+    </div>
+  <% end %>
+</div>
+
+
+
