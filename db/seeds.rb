@@ -37,7 +37,8 @@ end
 end
 
 
-#
+# create user
+User.create!(first_name: 'julien', last_name: 'victor', email: 'julien@exemple.com', password: 'secret')
 
 
 # user = User.create(first_name: 'Bob', last_name: 'Victor', email: 'bob@exemple.com', password: 'abcdef')

@@ -1,0 +1,15 @@
+<h1>New Castle</h1>
+
+<%= simple_form_for(@castle) do |f| %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :address %>
+    <%= f.input :description %>
+    <%= f.input :price_per_day %>
+    <%= f.input :photo, label: "Castle image" %>
+  </div>
+  <div class="form-actions button">
+    <%= f.button :submit %>
+  </div>
+<% end %>
