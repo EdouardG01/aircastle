@@ -7,12 +7,11 @@
       <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
       <li>
         <%= index + 1 %>/ <%= reservation.castle.name %> : from <%= reservation.starting_date %> to <%= reservation.ending_date %> (<%= temps %> days / <%= reservation.total_price %> €)
-
         <% if reservation.status == "pending" %>
-          <%= link_to "Accept", reservations_path %>
-          <%= link_to "Decline", reservations_path %>
+          <%= link_to "Accept", accept_reservation_path(reservation), method: :patch %>
+          <%= link_to "Decline", decline_reservation_path(reservation), method: :patch %>
         <% else %>
-          Status : <%= reservation.status %>
+          Status : <%= reservation.status.capitalize %>
         <% end %>
       </li>
   <% end %>
