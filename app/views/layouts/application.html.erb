@@ -12,7 +12,7 @@
   </head>
 
   <body>
-    <div class="navbar navbar-expand-sm navbar-light navbar-lewagon">
+    <div class="navbar navbar-expand-sm fixed-top navbar-light navbar-lewagon">
         <%= link_to "#", class: "navbar-brand" do %>
           <%= image_tag "https://upload.wikimedia.org/wikipedia/commons/0/05/Aircastle_Logo.svg" %>
         <% end %>
@@ -41,7 +41,8 @@
         </div>
       </div>
 
-        <%= yield %>
+      <%= yield %>
+
       <div class="footer">
         <div class="footer-links">
           <a href="#"><i class="fab fa-github"></i></a>
