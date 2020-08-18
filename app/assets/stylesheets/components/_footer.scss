@@ -6,17 +6,15 @@
 }
 .footer a {
   font-size: 32px;
-  color:rgba(204, 224, 247,.4);
+  color:#e9ecef;
   padding: 10px;
 }
 
 .footer a:hover {
+  color: rgba(255, 96, 69,.8);
   text-shadow: 0 0 2px rgba(255, 96, 69,.8);
 }
 
-.footer p {
-  color: #CED4DA;
-}
 
 .footer-copyright {
   color: #e9ecef;

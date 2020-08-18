@@ -8,10 +8,10 @@
 <div class="cards mx-5">
   <% @castles.each do |castle| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
-      <%= castle.name %>
+      <h2><%= castle.name.capitalize %></h2>
+      <%= link_to "", castle_path(castle), class: "card-link" %>
     </div>
   <% end %>
 </div>
-
 
 

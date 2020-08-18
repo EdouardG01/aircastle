@@ -1,7 +1,10 @@
+//////CARD CATEGORY///////
+
+
 .card-category {
   background-size: cover;
   background-position: center;
-  height: 180px;
+  height: 240px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -11,6 +14,14 @@
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  position: relative;
+}
+
+.card-category:hover {
+  transform: translate3D(0,-1px,0) scale(1.03); /* move up slightly and zoom in */
+  box-shadow: 1px 1px 5px rgba(0, 0, 0,.3), 1px 1px 5px rgba(0, 0, 0,.3);
+  transition: all .4s ease; /* zoom in */
+  cursor: pointer;
 }
 
 .cards {
@@ -22,13 +33,17 @@
 }
 
 .card-link {
+  position: absolute;
   text-decoration: none;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
   color: white;
-  &:hover {
-    opacity: 0.8;
-    color: white;
-  }
 }
+
+//////CARD TRIP///////
+
 .card-trip {
   overflow: hidden;
   background: white;
