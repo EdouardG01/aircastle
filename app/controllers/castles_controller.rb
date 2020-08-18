@@ -1,4 +1,6 @@
 class CastlesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
+
   def index
     @castles = Castle.all
   end
@@ -13,8 +15,8 @@ class CastlesController < ApplicationController
 
   def create
     @castle = Castle.new(castle_params)
-
-    if @castle.save
+    @castle.user = current_user
+    if @castle.save!
       redirect_to @castle, notice: 'Castle was successfully created.'
     else
       render :new
@@ -24,6 +26,6 @@ class CastlesController < ApplicationController
   private
 
   def castle_params
-    params.require(:castle).permit(:name, :address, :price_per_day, :description, :castle_image)
+    params.require(:castle).permit(:name, :address, :price_per_day, :description, :photo)
   end
 end
