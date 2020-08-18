@@ -1,0 +1,19 @@
+<br>
+
+<h1 class="mt-5">Mes réservations</h1>
+
+<ul>
+  <% @reservations.each_with_index do |reservation, index| %>
+      <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
+      <li>
+        <%= index + 1 %>/ <%= reservation.castle.name %> : from <%= reservation.starting_date %> to <%= reservation.ending_date %> (<%= temps %> days / <%= reservation.total_price %> €)
+
+        <% if reservation.status == "pending" %>
+          <%= link_to "Accept", reservations_path %>
+          <%= link_to "Decline", reservations_path %>
+        <% else %>
+          Status : <%= reservation.status %>
+        <% end %>
+      </li>
+  <% end %>
+</ul>
