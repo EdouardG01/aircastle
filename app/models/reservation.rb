@@ -2,6 +2,8 @@ class Reservation < ApplicationRecord
   belongs_to :user
   belongs_to :castle
 
+  validates :user, presence: true
+  validates :castle, presence: true
   validates :starting_date, presence: true
   validates :ending_date, presence: true
   validates :total_price, presence: true
