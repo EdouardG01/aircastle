@@ -34,8 +34,8 @@ end
   castle.photo.attach(io: castle_image, filename: "castle#{index + 1}.jpg")
   random_user = User.order(Arel.sql('RANDOM()')).first
   castle.user = random_user
-  castle.save!
   castle.valid?
+  castle.save!
 end
 
 
