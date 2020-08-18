@@ -53,7 +53,6 @@ Rails.application.configure do
   # Suppress logger output for asset requests.
   config.assets.quiet = true
   config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
   config.mailer_sender = 'aircastle@test.com'
 
   # Raises error for missing translations.
