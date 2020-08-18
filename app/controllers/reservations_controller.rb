@@ -1,6 +1,8 @@
 class ReservationsController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :new]
+
   def index
-    @reservations = Reservation.all
+    @reservations = Reservation.where(user: current_user)
   end
 
   def new
@@ -16,8 +18,7 @@ class ReservationsController < ApplicationController
     # Probleme : on peut avoir une date de 0 jours
     @reservation.total_price = @castle.price_per_day * (@reservation.ending_date - @reservation.starting_date).to_i
 
-    # Attention : modifier quand on s'occupera des users
-    @reservation.user = User.find(1)
+    @reservation.user = current_user
 
     if @reservation.save
       redirect_to reservations_path
