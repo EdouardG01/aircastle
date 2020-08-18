@@ -14,7 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  namespace :owners do
-    resources :reservations, only: [:index]
+  namespace :owner do
+    resources :castles, only: [:index]
   end
 end
