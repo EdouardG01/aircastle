@@ -2,9 +2,17 @@
   <div class="container">
     <h1>Pages#home</h1>
     <p>Change your life and learn to code at one of our campuses around the world.</p>
-    <a class="btn btn-flat" href="#">Apply now</a>
+    <a class="btn btn-ghost" href="#">Apply now</a>
   </div>
 </div>
 
+<div class="cards mx-5">
+  <% @castles.each do |castle| %>
+    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/breakfast.jpg)">
+      <%= castle.name %>
+    </div>
+  <% end %>
+</div>
 
-<p>Find me in app/views/pages/home.html.erb</p>
+
+
