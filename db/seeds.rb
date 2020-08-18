@@ -28,6 +28,7 @@ end
   castle.user = random_user
 
   castle.save!
+
 end
 
 
