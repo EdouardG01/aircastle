@@ -1,7 +1,7 @@
 <br>
 
-<h1 class="mt-5">Mes réservations</h1>
-
+<h1 class="container text-center my-4">Mes réservations</h1>
+<br>
 
 <ul>
   <% @reservations.each_with_index do |reservation, index| %>
@@ -16,9 +16,19 @@
       <% end %>
 
       <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
-      <li>
-        <%= index + 1 %>/ <%= reservation.castle.name %> : from <%= reservation.starting_date %> to <%= reservation.ending_date %> (<%= temps %> days / <%= reservation.total_price %> €)
-        Status : <%= status %>
-      </li>
+
+        <div class="container">
+          <div class="card-trip">
+         <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
+            <div class="card-trip-infos">
+          <h2><%= reservation.castle.name %></h2>
+          <p> Réservé du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
+          <br>
+          <p>(<%= temps %> days / <%= reservation.total_price %> €)</p>
+          <br>
+          <p>Status : <%= status %></p>
+            </div>
+          </div>
+         </div>
   <% end %>
 </ul>
