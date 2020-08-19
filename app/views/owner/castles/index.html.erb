@@ -26,8 +26,8 @@
           <p>Du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
           <p><%= reservation.total_price %> €</p>
           <p><%= status %></p>
-          <%= link_to "Accept", accept_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch %>
-          <%= link_to "Decline", decline_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch %>
+          <%= link_to "Accept", accept_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr d'accepter la réservation ?" } %>
+          <%= link_to "Decline", decline_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr de refuser la réservation ?" } %>
 
         </div>
 
