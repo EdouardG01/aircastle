@@ -1,10 +1,40 @@
-<h1>hello</h1>
+<h1>Mes châteaux</h1>
 
-<div class="cards mx-5">
-  <% @castles.each do |castle| %>
-    <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path castle.photo.key, height: 300, width: 400, crop: :fill %>')">
-      <%= link_to castle.name.capitalize, castle_path(castle), :class => "card-link" %>
-    </div>
+<ul>
+  <% @castles.each_with_index do |castle, index| %>
+
+    <li><%= index + 1%>/ <%= link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
+
+      <ul>
+        <li>
+        <% castle.reservations.each do |reservation| %>
+
+          <% status = "Erreur" %>
+          <% if reservation.status == "pending" %>
+            <% status = "En attente de validation" %>
+          <% elsif reservation.status == "accepted" %>
+            <% status = "Accepté" %>
+          <% elsif reservation.status == "declined" %>
+            <% status = "Refusé" %>
+          <% end %>
+
+          Nom : <%= reservation.user.last_name %> <br>
+          Prénom : <%= reservation.user.first_name %> <br>
+          Email : <%= reservation.user.email %> <br>
+          Du : <%= reservation.starting_date %> <br>
+          Au : <%= reservation.ending_date %> <br>
+          Prix : <%= reservation.total_price %> € <br>
+          Statut : <%= status %> <br>
+          <%= link_to "Accepter", accept_reservation_path(reservation), method: :patch, data: { confirm: "Etes-vous sûr d'accepter cette réservation ?" }%>
+          <%= link_to "Refuser", decline_reservation_path(reservation), method: :patch, data: { confirm: "Etes-vous sûr d'accepter cette réservation ?" }%>
+        <% end %>
+        </li>
+
+      </ul>
+
+    </li>
+
   <% end %>
-</div>
+</ul>
+
 
