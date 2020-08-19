@@ -2,41 +2,46 @@
 
 <% @castles.each_with_index do |castle, index| %>
 
-  <% index + 1%><% link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
+  <div class="container">
+    <div class="card-trip">
+      <h2 class="text-center mb-2"><%= castle.name %></h2>
 
-  <% castle.reservations.each do |reservation| %>
+      <% if castle.photo.attached? %>
+        <%= cl_image_tag castle.photo.key, height: 300, width: 400, crop: :fill %>
+      <% else %>
+        <p>Erreur : pas de photos</p>
+      <% end %>
 
-    <% status = "Erreur" %>
-    <% if reservation.status == "pending" %>
-      <% status = "En attente de validation" %>
-    <% elsif reservation.status == "accepted" %>
-      <% status = "Accepté" %>
-    <% elsif reservation.status == "declined" %>
-      <% status = "Refusé" %>
-    <% end %>
+      <% index + 1%><% link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
 
-    <div class="container">
-      <div class="card-trip">
+        <% castle.reservations.each do |reservation| %>
 
-         <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
+          <div class="card-trip-infos">
 
+          <% status = "Erreur" %>
+          <% if reservation.status == "pending" %>
+            <% status = "En attente de validation" %>
+          <% elsif reservation.status == "accepted" %>
+            <% status = "Accepté" %>
+          <% elsif reservation.status == "declined" %>
+            <% status = "Refusé" %>
+          <% end %>
 
-        <div class="card-trip-infos">
-          <h2><%= reservation.user.last_name %> <%= reservation.user.first_name %></h2>
-          <p>Du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
-          <p><%= reservation.total_price %> €</p>
-          <p><%= status %></p>
-          <%= link_to "Accept", accept_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr d'accepter la réservation ?" } %>
-          <%= link_to "Decline", decline_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr de refuser la réservation ?" } %>
+            <h2><%= reservation.user.last_name %> <%= reservation.user.first_name %></h2>
+            <p>Du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
+            <p><%= reservation.total_price %> €</p>
+            <p><%= status %></p>
+            <% if  reservation.status == "pending" %>
+              <%= link_to "Accept", accept_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr d'accepter la réservation ?" } %>
+              <%= link_to "Decline", decline_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr de refuser la réservation ?" } %>
+            <% end %>
 
         </div>
-
-
+        <% end %>
 
       </div>
     </div>
 
-  <% end %>
 
 <% end %>
 
