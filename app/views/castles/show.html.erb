@@ -7,7 +7,7 @@
         <p><%= @castle.description %></p>
       </div>
       <h2 class="card-trip-pricing"><%= @castle.price_per_day %> €</h2>
-      <%= link_to "Book", new_castle_reservation_path(@castle) %>
+      <%= link_to "Book", new_castle_reservation_path(@castle), class: "btn btn-outline-light rounded-pill btn-lg" %>
     </div>
   </div>
 </div>
