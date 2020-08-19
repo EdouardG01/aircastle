@@ -1,0 +1,18 @@
+<br>
+
+<h1 class="mt-5">Réserver le Castle</h1>
+
+<div class="container my-5">
+
+  <%= simple_form_for [ @castle, @reservation ] do |f| %>
+    <div class="form-inputs">
+      <%= f.input :starting_date %>
+      <%= f.input :ending_date %>
+    </div>
+
+    <div class="form-actions btn btn-primary">
+      <%= f.button :submit %>
+    </div>
+  <% end %>
+
+</div>

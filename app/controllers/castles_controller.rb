@@ -7,6 +7,7 @@ class CastlesController < ApplicationController
 
   def show
     @castle = Castle.find(params[:id])
+    @reservation = Reservation.new
   end
 
   def new
