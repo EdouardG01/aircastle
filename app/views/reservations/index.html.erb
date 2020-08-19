@@ -22,10 +22,8 @@
          <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
             <div class="card-trip-infos">
           <h2><%= reservation.castle.name %></h2>
-          <p> Réservé du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
-          <br>
-          <p>(<%= temps %> days / <%= reservation.total_price %> €)</p>
-          <br>
+          <p><%= reservation.starting_date %> <%= reservation.ending_date %></p>
+          <p><%= temps %> jours / <%= reservation.total_price %> €</p>
           <p>Status : <%= status %></p>
             </div>
           </div>
