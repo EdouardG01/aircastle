@@ -1,4 +1,4 @@
-.btn-outline-primary {
+.btn-outline-light {
   color: white;
   border: 1px solid #FF6045;
   background-color:rgba(255, 96, 69,.8);
@@ -9,7 +9,14 @@
   transition: opacity 0.3s ease;
 }
 
-.btn-outline-primary:hover {
+.btn-outline-light:hover {
+  opacity: 1;
+  color: white;
+  border: 1px solid #FF6045;
+  background-color: #FF6045;
+}
+
+.btn-outline-light:active {
   opacity: 1;
   color: white;
   border: 1px solid #FF6045;
