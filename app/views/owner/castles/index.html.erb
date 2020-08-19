@@ -1,40 +1,43 @@
-<h1>Mes châteaux</h1>
+<h1 class="container text-center my-4">Mes châteaux</h1>
 
-<ul>
-  <% @castles.each_with_index do |castle, index| %>
+<% @castles.each_with_index do |castle, index| %>
 
-    <li><%= index + 1%>/ <%= link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
+  <% index + 1%><% link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
 
-      <ul>
-        <li>
-        <% castle.reservations.each do |reservation| %>
+  <% castle.reservations.each do |reservation| %>
 
-          <% status = "Erreur" %>
-          <% if reservation.status == "pending" %>
-            <% status = "En attente de validation" %>
-          <% elsif reservation.status == "accepted" %>
-            <% status = "Accepté" %>
-          <% elsif reservation.status == "declined" %>
-            <% status = "Refusé" %>
-          <% end %>
+    <% status = "Erreur" %>
+    <% if reservation.status == "pending" %>
+      <% status = "En attente de validation" %>
+    <% elsif reservation.status == "accepted" %>
+      <% status = "Accepté" %>
+    <% elsif reservation.status == "declined" %>
+      <% status = "Refusé" %>
+    <% end %>
 
-          Nom : <%= reservation.user.last_name %> <br>
-          Prénom : <%= reservation.user.first_name %> <br>
-          Email : <%= reservation.user.email %> <br>
-          Du : <%= reservation.starting_date %> <br>
-          Au : <%= reservation.ending_date %> <br>
-          Prix : <%= reservation.total_price %> € <br>
-          Statut : <%= status %> <br>
-          <%= link_to "Accepter", accept_reservation_path(reservation), method: :patch, data: { confirm: "Etes-vous sûr d'accepter cette réservation ?" }%>
-          <%= link_to "Refuser", decline_reservation_path(reservation), method: :patch, data: { confirm: "Etes-vous sûr d'accepter cette réservation ?" }%>
-        <% end %>
-        </li>
+    <div class="container">
+      <div class="card-trip">
 
-      </ul>
+         <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
 
-    </li>
+
+        <div class="card-trip-infos">
+          <h2><%= reservation.user.last_name %> <%= reservation.user.first_name %></h2>
+          <p>Du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
+          <p><%= reservation.total_price %> €</p>
+          <p><%= status %></p>
+          <%= link_to "Accept", accept_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch %>
+          <%= link_to "Decline", decline_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch %>
+
+        </div>
+
+
+
+      </div>
+    </div>
 
   <% end %>
-</ul>
+
+<% end %>
 
 
