@@ -5,10 +5,12 @@ class CastlesController < ApplicationController
     @castles = Castle.all
     @castles = Castle.geocoded # returns flats with coordinates
 
-    @markers = @castles.map do |flat|
+    @markers = @castles.map do |castle|
       {
-        lat: flat.latitude,
-        lng: flat.longitude
+        lat: castle.latitude,
+        lng: castle.longitude,
+        infoWindow: render_to_string(partial: "info_window", locals: { castle: castle }),
+        image_url: helpers.asset_url('marker.png')
       }
     end
   end
