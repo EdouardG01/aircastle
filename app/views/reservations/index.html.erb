@@ -3,7 +3,7 @@
 <h1 class="container text-center my-2">Mes réservations</h1>
 
 <ul>
-  <% @reservations.each_with_index do |reservation, index| %>
+  <% @reservations.reverse_each do |reservation| %>
 
       <% status = "Erreur" %>
       <% if reservation.status == "pending" %>
