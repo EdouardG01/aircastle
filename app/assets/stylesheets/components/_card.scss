@@ -1,6 +1,9 @@
 //////CARD CATEGORY///////
 
+.map_container  {
+  display: flex;
 
+}
 .card-category {
   background-size: cover;
   background-position: center;
@@ -26,9 +29,8 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
-  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -91,6 +93,25 @@
   width: 40px;
 }
 
+// .cards-container-index {
+
+//   .card-index {
+//     display: flex;
+//     grid-template-columns: 1fr 1fr 1fr;
+//     background-size: fill;
+//     background-position: center;
+//     height: 300px;
+//     width: 250px;
+//     justify-content: space-evenly;
+//     align-items: center;
+//     color: white;
+//     font-size: 24px;
+//     font-weight: bold;
+//     text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+//     border-radius: 10px;
+//     box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   }
+// }
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
@@ -122,6 +143,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
