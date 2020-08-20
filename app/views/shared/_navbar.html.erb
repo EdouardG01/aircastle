@@ -13,10 +13,10 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Les châteaux", castles_path, class: "nav-link mr-3 text-danger" %>
         </li>
+      <% if user_signed_in? %>
         <li class="nav-item">
           <%= link_to "Mes réservations", reservations_path, class: "nav-link mr-3 text-dark" %>
         </li>
