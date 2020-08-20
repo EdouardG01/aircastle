@@ -24,7 +24,10 @@
 
             <i class="fas fa-circle"></i>
             <p>Réservé par <strong><%= reservation.user.last_name.capitalize %> <%= reservation.user.first_name.capitalize %></strong></p>
-            <p>Du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
+            <% starting = reservation.starting_date.to_formatted_s(:long) %>
+            <% ending = reservation.ending_date.to_formatted_s(:long) %>
+
+            <p><%= starting %> / <%= ending %></p>
             <p>Prix total : <%= reservation.total_price %> €</p>
 
             <% if  reservation.status == "pending" %>
