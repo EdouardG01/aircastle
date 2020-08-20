@@ -13,6 +13,8 @@
         <% end %>
 
         <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
+        <% starting = reservation.starting_date.to_formatted_s(:long) %>
+        <% ending = reservation.ending_date.to_formatted_s(:long) %>
 
             <div class="card-reservation">
               <h2 class="text-center mt-1 mb-2"><%= reservation.castle.name %></h2>
@@ -20,7 +22,7 @@
                  <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
                   <div class="card-reservation-infos">
 
-                    <p><%= reservation.starting_date %> <%= reservation.ending_date %></p>
+                    <p><%= starting %> <br><%= ending %></p>
                     <br>
                     <p><%= temps %> jours / <%= reservation.total_price %> €</p>
                     <br>
