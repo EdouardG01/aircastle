@@ -30,7 +30,7 @@ class CastlesController < ApplicationController
     @castle = Castle.new(castle_params)
     @castle.user = current_user
     if @castle.save!
-      redirect_to @castle, notice: 'Castle was successfully created.'
+      redirect_to @castle, notice: 'Le château a été créer avec succès.'
     else
       render :new
     end
