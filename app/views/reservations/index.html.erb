@@ -14,9 +14,9 @@
         <% status = "Refusé" %>
       <% end %>
 
-      <% temps = (reservion.ending_date - reservation.starting_date).to_i %>
+      <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
       <% starting = reservation.starting_date.to_formatted_s(:long) %>
-      <% ending = reservatioatn.ending_date.to_formatted_s(:long) %>
+      <% ending = reservation.ending_date.to_formatted_s(:long) %>
         <div class="container">
           <div class="card-trip">
          <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
