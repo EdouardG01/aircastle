@@ -3,7 +3,7 @@
     <div class="card-trip">
           <h1 class="text-center mt-1 mb-2"><%= @castle.name.upcase %></h1>
           <br>
-          <div class="card-show">
+          <div class="card-image">
             <%= cl_image_tag @castle.photo.key, height: 300, width: 400, crop: :fill %>
             <%= render './reservations/new-reservation', castle: @castle, reservation: @reservation %>
             </div>
