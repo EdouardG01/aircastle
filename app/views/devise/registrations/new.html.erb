@@ -3,24 +3,29 @@
     <%= f.error_notification %>
 
     <div class="form-inputs card-trip">
-      <h2>Sign up</h2>
+      <h2>Inscription</h2>
       <%= f.input :first_name,
-                  autofocus: true %>
-        <%= f.input :last_name %>
+                  autofocus: true,
+                  label: "Prénom" %>
+        <%= f.input :last_name,
+                  label: "Nom"%>
       <%= f.input :email,
                   input_html: { autocomplete: "email" }%>
       <%= f.input :password,
                   required: true,
+                  label: "Mot de passe",
                   hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
                   input_html: { autocomplete: "new-password" } %>
       <%= f.input :password_confirmation,
                   required: true,
+                  label: "Confirmer votre mot de passe",
                   input_html: { autocomplete: "new-password" } %>
-     <div class="form-actions btn-outline-light btn-outline-light:hover">
-      <%= f.button :submit, "Incription" %>
-    </div>
-      <%= render "devise/shared/links" %>
-    </div>
+      <div>
+       <%= render "devise/shared/links" %>
+      </div>
+      <div class="form-actions btn-outline-light btn-outline-light:hover button_top ">
+       <%= f.button :submit, "Incription" %>
+      </div>
   <% end %>
 </div>
 
