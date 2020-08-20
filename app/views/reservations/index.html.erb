@@ -22,11 +22,9 @@
                  <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
                   <div class="card-reservation-infos">
 
-                    <p><%= starting %> <br><%= ending %></p>
-                    <br>
+                    <p> Du  <%= starting %> <br> au <%= ending %></p>
                     <p><%= temps %> jours / <%= reservation.total_price %> €</p>
-                    <br>
-                    <p>Status : <%= status %></p>
+                    <p>Statut : <%= status %></p>
                     <br>
                   </div>
                 </div>
