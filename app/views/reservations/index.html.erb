@@ -1,31 +1,33 @@
-<br>
 
-<h1 class="container text-center my-2">Mes réservations</h1>
+<div class="container">
+  <h1 class="text-center my-2">Mes réservations</h1>
 
-<ul>
-  <% @reservations.reverse_each do |reservation| %>
+    <% @reservations.reverse_each do |reservation| %>
+        <% status = "Erreur" %>
+        <% if reservation.status == "pending" %>
+          <% status = "En attente de validation" %>
+        <% elsif reservation.status == "accepted" %>
+          <% status = "Accepté" %>
+        <% elsif reservation.status == "declined" %>
+          <% status = "Refusé" %>
+        <% end %>
 
-      <% status = "Erreur" %>
-      <% if reservation.status == "pending" %>
-        <% status = "En attente de validation" %>
-      <% elsif reservation.status == "accepted" %>
-        <% status = "Accepté" %>
-      <% elsif reservation.status == "declined" %>
-        <% status = "Refusé" %>
-      <% end %>
+        <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
 
-      <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
+            <div class="card-reservation">
+              <h2 class="text-center mt-1 mb-2"><%= reservation.castle.name %></h2>
+                <div class="card-reservation-show">
+                 <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
+                  <div class="card-reservation-infos">
 
-        <div class="container">
-          <div class="card-trip">
-         <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
-            <div class="card-trip-infos">
-              <h2><%= reservation.castle.name %></h2>
-              <p><%= reservation.starting_date %> <%= reservation.ending_date %></p>
-              <p><%= temps %> jours / <%= reservation.total_price %> €</p>
-              <p>Status : <%= status %></p>
+                    <p><%= reservation.starting_date %> <%= reservation.ending_date %></p>
+                    <br>
+                    <p><%= temps %> jours / <%= reservation.total_price %> €</p>
+                    <br>
+                    <p>Status : <%= status %></p>
+                    <br>
+                  </div>
+                </div>
             </div>
-          </div>
-         </div>
-  <% end %>
-</ul>
+    <% end %>
+</div>
