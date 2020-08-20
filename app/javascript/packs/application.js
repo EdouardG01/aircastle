@@ -25,6 +25,8 @@ require("channels")
 // External imports
 import "bootstrap";
 import { loadDynamicBannerText } from '../components/banner';
+// app/javascript/packs/application.js
+import "../plugins/flatpickr"
 
 import { initMapbox } from '../plugins/init_mapbox';
 

@@ -7,15 +7,15 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-
-User.destroy_all
+Reservation.destroy_all
 Castle.destroy_all
+User.destroy_all
 puts "creating database"
 
 25.times do
   user = User.new(
     first_name: Faker::Name.first_name,
-    last_name: Faker::Name.last_name ,
+    last_name: Faker::Name.last_name,
     email: Faker::Internet.email,
     password: 'secret'
   )
@@ -25,9 +25,9 @@ end
 12.times.with_index do |index|
   castle_image = File.open(Rails.root.join("db/fixtures/castles/castle#{index + 1}.jpg"))
   castle = Castle.new(
-    name:  Faker::Games::Pokemon.name,
-    description: Faker::Lorem.paragraph(sentence_count: 2, supplemental: false, random_sentences_to_add: 4),
-    address: Faker::Address.city,
+    name:  Faker::TvShows::GameOfThrones.house,
+    description: Faker::TvShows::GameOfThrones.quote,
+    address: Faker::TvShows::GameOfThrones.city,
     price_per_day: rand(10..20)
   )
   castle.photo.attach(io: castle_image, filename: "castle#{index + 1}.jpg")
@@ -39,7 +39,7 @@ end
 
 # create user
 User.create!(first_name: 'julien', last_name: 'victor', email: 'julien@exemple.com', password: 'secret')
-
+User.create!(first_name: 'edouard', last_name: 'goisbault', email: 'edouard@exemple.com', password: 'secret')
 
 # user = User.create(first_name: 'Bob', last_name: 'Victor', email: 'bob@exemple.com', password: 'abcdef')
 

@@ -1,10 +1,13 @@
-<h1 class="container text-center my-4">Mes châteaux</h1>
+<div class="container text-center">
+  <h1 class="font-weight-bold my-4">Mes châteaux</h1>
+  <%= link_to "Ajouter un château", new_castle_path, :class => "btn btn-success" %>
+</div>
 
 <% @castles.each_with_index do |castle, index| %>
 
   <div class="container">
     <div class="card-trip">
-      <h2 class="text-center mb-2"><%= castle.name %></h2>
+      <h2 class="text-center mb-2"><%= castle.name.capitalize %></h2>
 
       <% if castle.photo.attached? %>
         <%= cl_image_tag castle.photo.key, height: 300, width: 400, crop: :fill %>
@@ -14,26 +17,26 @@
 
       <% index + 1%><% link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
 
+        <h4 class="mt-4 mb-3">Demandes de réservation :</h4>
         <% castle.reservations.each do |reservation| %>
 
-          <div class="card-trip-infos">
+          <div class="card-trip-infos align-items-center">
 
-          <% status = "Erreur" %>
-          <% if reservation.status == "pending" %>
-            <% status = "En attente de validation" %>
-          <% elsif reservation.status == "accepted" %>
-            <% status = "Accepté" %>
-          <% elsif reservation.status == "declined" %>
-            <% status = "Refusé" %>
-          <% end %>
+            <i class="fas fa-circle"></i>
+            <p>Réservé par <strong><%= reservation.user.last_name.capitalize %> <%= reservation.user.first_name.capitalize %></strong></p>
+            <% starting = reservation.starting_date.to_formatted_s(:long) %>
+            <% ending = reservation.ending_date.to_formatted_s(:long) %>
 
-            <h2><%= reservation.user.last_name %> <%= reservation.user.first_name %></h2>
-            <p>Du <%= reservation.starting_date %> au <%= reservation.ending_date %></p>
-            <p><%= reservation.total_price %> €</p>
-            <p><%= status %></p>
+            <p><%= starting %> / <%= ending %></p>
+            <p>Prix total : <%= reservation.total_price %> €</p>
+
             <% if  reservation.status == "pending" %>
-              <%= link_to "Accept", accept_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr d'accepter la réservation ?" } %>
-              <%= link_to "Decline", decline_reservation_path(reservation), class: 'btn-outline-light rounded-pill', method: :patch, data: { confirm: "Etes-vous sûr de refuser la réservation ?" } %>
+              <%= link_to icon("fa", "check"), accept_reservation_path(reservation), class: 'text-success tick-font mx-2', method: :patch, data: { confirm: "Etes-vous sûr d'accepter la réservation ?" } %>
+              <%= link_to icon("fas", "times"), decline_reservation_path(reservation), class: 'text-danger tick-font mx-2', method: :patch, data: { confirm: "Etes-vous sûr de refuser la réservation ?" } %>
+            <% elsif reservation.status == "accepted" %>
+              <i class="fas fa-check"></i>
+            <% else %>
+              <i class="fas fa-times"></i>
             <% end %>
 
         </div>

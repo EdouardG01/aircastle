@@ -1,15 +1,14 @@
-<h1>New Castle</h1>
+<div class="container">
 
-<%= simple_form_for(@castle) do |f| %>
-
-  <div class="form-inputs">
-    <%= f.input :name %>
-    <%= f.input :address %>
-    <%= f.input :description %>
-    <%= f.input :price_per_day %>
-    <%= f.input :photo, label: "Castle image" %>
+  <div class="form-inputs card-trip">
+    <%= simple_form_for(@castle) do |f| %>
+    <h1>Créer un château</h1>
+        <%= f.input :name, label: "Nom du château" %>
+        <%= f.input :address, label: "Adresse du propriétaire du château" %>
+        <%= f.input :description, label: "Description" %>
+        <%= f.input :price_per_day, label: "Prix par jour" %>
+        <%= f.input :photo, label: "Photo du château" %>
+        <%= f.button :submit, "Créer", :class => "btn-outline-light btn-outline-light:hover btn-outline-light:active"%>
+    <% end %>
   </div>
-  <div class="form-actions button">
-    <%= f.button :submit %>
-  </div>
-<% end %>
+</div>

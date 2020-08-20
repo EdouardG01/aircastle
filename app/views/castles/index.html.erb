@@ -5,14 +5,12 @@
     <br>
   </div>
 
-
   <div class="cards-map-container-index my-5">
-
       <div class="cards mx-5">
         <% @castles.each do |castle| %>
           <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path castle.photo.key, height: 300, width: 400, crop: :fill %>')">
             <h2><%= castle.name.capitalize %></h2>
-            <%= link_to "", castle_path(castle), class: "card-link" %>
+            <%= link_to "", castle_path(castle), class: "card-link", data: { turbolinks: false } %>
           </div>
         <% end %>
       </div>
@@ -22,6 +20,5 @@
          data-markers="<%= @markers.to_json %>"
          data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
       </div>
-
   </div>
 </div>

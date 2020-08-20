@@ -1,9 +1,9 @@
 .banner {
   background-size: cover;
   background-position: center;
-  padding: 150px 0;
+  padding: 30px 0;
   text-align: center;
-  border-radius: 5px;
+  border-radius: 50% 50% 10% 10%;
 }
 
 .banner h1 {
@@ -14,5 +14,19 @@
   font-weight: bold;
 }
 
+.banner-size {
+  width: 500px;
+  height: 500px;
+}
 
+.home-title {
+  font-size: 45px;
+}
 
+.home-description {
+  font-size: 25px;
+}
+
+.home-color {
+  color: #E44F37;
+}
