@@ -47,11 +47,12 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   padding: 20px;
   background-color: #f8f9fa;
-  border-radius: 10px;
-  margin:40px;
+  border-radius: 30px;
+  margin:20px;
+  margin-bottom: 30px;
 }
 
 .card-show {
@@ -59,7 +60,7 @@
 }
 
 .card-trip > img {
-  height: 500px;
+  height: 400px;
   width: 100%;
   object-fit: none;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
@@ -70,10 +71,10 @@
 .card-show > img {
   height: 350px;
   width:60%;
-  object-fit: none;
+  object-fit: cover;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
   background-color: white;
-  border-radius: 10px;
+  border-radius: 30px;
   margin-right: 50px;
 }
 
