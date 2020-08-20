@@ -54,6 +54,10 @@
   margin:40px;
 }
 
+.card-show {
+  display: flex;
+}
+
 .card-trip > img {
   height: 500px;
   width: 100%;
@@ -63,8 +67,18 @@
   border-radius: 10px;
 }
 
+.card-show > img {
+  height: 350px;
+  width:60%;
+  object-fit: none;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: white;
+  border-radius: 10px;
+  margin-right: 50px;
+}
+
 .card-trip h2 {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
 }
@@ -88,7 +102,7 @@
   position: absolute;
   right: 16px;
   top: -20px;
-  width: 40px;
+  width: 20px;
 }
 
 // Smallest device
