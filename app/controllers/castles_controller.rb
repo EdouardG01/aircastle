@@ -15,6 +15,7 @@ class CastlesController < ApplicationController
       @castles = @castles.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     end
 
+
     @markers = @castles.map do |castle|
       {
         lat: castle.latitude,
