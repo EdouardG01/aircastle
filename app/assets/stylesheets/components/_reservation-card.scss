@@ -1,0 +1,57 @@
+
+/////////CARD RESERVATION /////////
+
+.card-reservation {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
+  padding: 20px;
+  background-color: #f8f9fa;
+  border-radius: 30px;
+  margin:40px 20px 60px 20px;
+}
+
+.card-reservation-show {
+  display:flex;
+}
+
+
+.card-reservation > img {
+  height: 400px;
+  width: 100%;
+  object-fit: none;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: white;
+  border-radius: 10px;
+}
+
+.card-reservation-show > img {
+  height: 30%;
+  width:50%;
+  object-fit: none;
+  box-shadow: 0 0 2px rgba(0,0,0,0.4);
+  background-color: white;
+  border-radius: 30px;
+  margin: 4%;
+}
+
+.card-reservation h2 {
+  font-size: 30px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-reservation p {
+  font-size: 20px;
+  opacity: .7;
+}
+
+
+.card-reservation .card-reservation-infos {
+  padding: 16px;
+  display: grid;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin:4%;
+}
+
