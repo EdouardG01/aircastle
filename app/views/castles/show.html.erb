@@ -1,7 +1,7 @@
 <div class="container">
   <h2 class="mt-4 text-center">Réserver le Château</h2>
     <div class="card-trip">
-          <h1 class="text-center mt-1 mb-2"><%= @castle.name.capitalize %></h1>
+          <h1 class="text-center mt-1 mb-2"><%= @castle.name.upcase %></h1>
           <br>
           <div class="card-show">
             <%= cl_image_tag @castle.photo.key, height: 300, width: 400, crop: :fill %>

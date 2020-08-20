@@ -51,8 +51,8 @@
   padding: 20px;
   background-color: #f8f9fa;
   border-radius: 30px;
-  margin:20px;
-  margin-bottom: 30px;
+  margin:40px 20px 60px 20px;
+
 }
 
 .card-show {
@@ -69,13 +69,13 @@
 }
 
 .card-show > img {
-  height: 350px;
+  height: 270px;
   width:60%;
-  object-fit: cover;
+  object-fit: none;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
   background-color: white;
   border-radius: 30px;
-  margin-right: 50px;
+  margin-right: 10%;
 }
 
 .card-trip h2 {
