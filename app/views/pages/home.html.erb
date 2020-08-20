@@ -1,15 +1,55 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "background-castle.png" %>')">
-  <div class="container ">
-    <h1><span id="banner-typed-text" ></span></h1>
-    <%= link_to "Voir les châteaux", castles_path, class: "btn btn-outline-light rounded-pill btn-lg ml-5" %>
+
+
+<div class="banner d-flex justify-content-around">
+  <div class="text-left align-self-center mr-5">
+      <h2 class="font-weight-bold home-title">Tous les <span class="home-color">châteaux gonflables</span> à <br>portée de click.</h2>
+      <div class="">
+        <p class="text-secondary mt-3 home-description"><span id="banner-typed-text" ></span></p>
+        <%= link_to "Trouver un château", castles_path, class: "btn btn-outline-light rounded-pill btn-lg mt-3" %>
+      </div>
+  </div>
+
+  <div class="banner banner-size ml-5" style="background-image: linear-gradient(rgba(0,0,0,0.1),rgba(0,0,0,0.1)), url('<%= image_path "background-castle.png" %>')">
   </div>
 </div>
 
-<div class="cards mx-5">
+<div>
+
+  <div class="home-cards mx-5">
+
+    <div class="home-card">
+      <i class="fas fa-chess-rook"></i>
+      <div class="home-card-text">
+        <h2>Qualité</h2>
+        <p>Tous sont châteaux sont de la plus haute qualité</p>
+      </div>
+    </div>
+
+    <div class="home-card">
+      <i class="fas fa-shield-alt"></i>
+      <div class="home-card-text">
+        <h2>Sécurité</h2>
+        <p>Tous nos châteaux sont sécurisés et certifiés</p>
+      </div>
+    </div>
+
+    <div class="home-card">
+      <i class="fab fa-fort-awesome"></i>
+      <div class="home-card-text">
+        <h2 class="">Exclusivité</h2>
+        <p>Bénéficier d'un choix sélectif parmis les meilleurs châteaux du monde</p>
+      </div>
+    </div>
+
+</div>
+</div>
+<!--   <h2 class="font-weight-bold text-center mt-5">Découvrir nos châteaux</h2> -->
+
+<!-- <div class="cards mx-5">
   <% @castles.each do |castle| %>
     <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path castle.photo.key, height: 300, width: 400, crop: :fill %>')">
       <h2><%= castle.name.capitalize %></h2>
       <%= link_to "", castle_path(castle), class: "card-link" %>
     </div>
   <% end %>
-</div>
+</div> -->

@@ -1,11 +1,10 @@
 .navbar-lewagon {
   justify-content: space-between;
-  background: #f8f9fa;
-  opacity:.85;
-  padding: 0 30px;
+  background: #F4F4F4;
+  // opacity:.85;
+  padding: 10px 30px;
   margin: 0;
   border-radius: 5px;
-  box-shadow: 0 1px 1px 0px rgba(0,0,0,.2);
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -21,5 +20,28 @@
   width: 50px;
   height: 50px;
   align-items: center;
-  margin: 5px;
+  margin-top: 5px;
+}
+
+.logo-nav {
+  font-family: 'Yellowtail', cursive;
+  font-size: 30px;
+  color: #E44F37;
+  &:hover {
+    text-decoration: none;
+    color: #E44F37;
+  }
+}
+
+.color-nav-item {
+  color: #E44F37;
+}
+
+.avatar-size {
+  width: 45px;
+  height: 45px;
+}
+
+.nav-link {
+  font-size: 18px;
 }
