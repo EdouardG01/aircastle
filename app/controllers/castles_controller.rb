@@ -2,9 +2,16 @@ class CastlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @castles = Castle.all
-    @castles = Castle.geocoded # returns flats with coordinates
-
+    @castles = Castle.geocoded
+    if params[:query].present?
+      sql_query = " \
+      castles.name ILIKE :query \
+      OR castles.description ILIKE :query \
+      OR users.first_name ILIKE :query \
+      OR users.last_name ILIKE :query \
+      "
+      @castles = @castles.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+    end
     @markers = @castles.map do |castle|
       {
         lat: castle.latitude,
