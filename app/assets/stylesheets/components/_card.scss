@@ -1,6 +1,9 @@
 //////CARD CATEGORY///////
 
+.map_container  {
+  display: flex;
 
+}
 .card-category {
   background-size: cover;
   background-position: center;
@@ -26,9 +29,8 @@
 
 .cards {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr;
   grid-gap: 40px;
-  margin-top: 50px;
   margin-bottom: 50px;
 }
 
@@ -137,6 +139,6 @@
 // Extra large devices (large desktops, 1200px and up)
 @media (min-width: 1200px) {
   .cards {
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
   }
 }
