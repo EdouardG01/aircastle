@@ -1,0 +1,11 @@
+<div class="container search">
+  <%= form_tag castles_path, method: :get do %>
+    <%= text_field_tag :query,
+      params[:query],
+      class: "form-control",
+      placeholder: "Trouver un château"
+    %>
+    <%= submit_tag "Search", class: "btn btn-primary" %>
+  <% end %>
+</div>
+

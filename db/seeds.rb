@@ -40,7 +40,6 @@ end
 # create user
 User.create!(first_name: 'julien', last_name: 'victor', email: 'julien@exemple.com', password: 'secret')
 
-
 # user = User.create(first_name: 'Bob', last_name: 'Victor', email: 'bob@exemple.com', password: 'abcdef')
 
 # castle = Castle.new(name: 'Castle1', description: 'Best castle', address: '2 rue du bois', price_per_day: 20, user: user)
