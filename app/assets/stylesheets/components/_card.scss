@@ -13,7 +13,7 @@
   font-weight: bold;
   text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
   border-radius: 10px;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 8px rgba(0,0,0,0.2);
   position: relative;
 }
 
@@ -47,15 +47,20 @@
 .card-trip {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0,0,0,0.3);
   padding: 20px;
   background-color: #f8f9fa;
-  border-radius: 10px;
-  margin:40px;
+  border-radius: 30px;
+  margin:20px;
+  margin-bottom: 30px;
+}
+
+.card-show {
+  display: flex;
 }
 
 .card-trip > img {
-  height: 500px;
+  height: 400px;
   width: 100%;
   object-fit: none;
   box-shadow: 0 0 2px rgba(0,0,0,0.2);
@@ -63,14 +68,24 @@
   border-radius: 10px;
 }
 
+.card-show > img {
+  height: 350px;
+  width:60%;
+  object-fit: cover;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+  background-color: white;
+  border-radius: 30px;
+  margin-right: 50px;
+}
+
 .card-trip h2 {
-  font-size: 24px;
+  font-size: 30px;
   font-weight: bold;
   margin: 0;
 }
 
 .card-trip p {
-  font-size: 14px;
+  font-size: 17px;
   opacity: .7;
   margin: 0;
 }
@@ -88,7 +103,7 @@
   position: absolute;
   right: 16px;
   top: -20px;
-  width: 40px;
+  width: 20px;
 }
 
 // Smallest device

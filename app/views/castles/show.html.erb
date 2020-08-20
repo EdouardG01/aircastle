@@ -1,17 +1,19 @@
 <div class="container">
-  <h1 class="text-center mt-3"><%= @castle.name.capitalize %></h1>
-  <div class="card-trip">
-    <div class="card-trip-infos">
-      <div>
-        <p> <strong>Description : </strong> <%= @castle.description %></p>
-      </div>
-      <h2 class="card-trip-pricing"><%= @castle.price_per_day %> €</h2>
+  <h2 class="mt-4 text-center">Réserver le Château</h2>
+    <div class="card-trip">
+          <h1 class="text-center mt-1 mb-2"><%= @castle.name.capitalize %></h1>
+          <br>
+          <div class="card-show">
+            <%= cl_image_tag @castle.photo.key, height: 300, width: 400, crop: :fill %>
+            <%= render './reservations/new-reservation', castle: @castle, reservation: @reservation %>
+            </div>
+          <br>
+          <div class="card-trip-infos">
+            <div>
+              <p> <%= @castle.description %></p>
+            </div>
+            <h2 class="card-trip-pricing"><%= @castle.price_per_day %> € /Jour</h2>
+          </div>
     </div>
-    <%= cl_image_tag @castle.photo.key, height: 300, width: 400, crop: :fill %>
-
-    <h2 class="mt-5 text-center">Réserver le Château</h2>
-    <br>
-    <%= render './reservations/new-reservation', castle: @castle, reservation: @reservation %>
-  </div>
 </div>
 
