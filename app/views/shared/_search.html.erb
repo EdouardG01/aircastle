@@ -1,0 +1,17 @@
+<div class="d-flex">
+  <div>
+    <%= form_tag castles_path, method: :get do %>
+      <%= text_field_tag :query,
+        params[:query],
+        class: "form-control search",
+        placeholder: "Trouver un château"
+      %>
+  </div>
+   <div>
+      <%= button_tag(type: "submit", class: "btn-outline-light btn-outline-light:hover btn-outline-light:active") do %>
+        <i class="fas fa-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+

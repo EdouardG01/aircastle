@@ -2,7 +2,19 @@ class CastlesController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    @castles = Castle.all
+    if params[:query].present?
+        sql_query = " \
+        castles.name ILIKE :query \
+        OR castles.description ILIKE :query \
+        OR users.first_name ILIKE :query \
+        OR users.last_name ILIKE :query \
+      "
+        @castles = Castle.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+        # @users = Castle.joins(:user).where(sql_query, query: "%#{params[:query]}%")
+        # @castles = Castle.all
+      else
+        @castles = Castle.all
+      end
   end
 
   def show
