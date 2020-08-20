@@ -1,5 +1,3 @@
-
-
   <%= simple_form_for [ @castle, @reservation ] do |f| %>
     <div class="form-inputs">
       <%= f.input :starting_date, label: "Date de début" %>
@@ -9,7 +7,6 @@
     <div class="form-actions btn btn-outline-light rounded-pill btn-lg pull-right">
       <%= f.button :submit, 'Je réserve !' %>
       <%= link_to "", reservations_path %>
-
     </div>
   <% end %>
 
