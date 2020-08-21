@@ -21,6 +21,7 @@ const initMapbox = () => {
     const markers = JSON.parse(mapElement.dataset.markers);
     markers.forEach((marker) => {
       const popup = new mapboxgl.Popup().setHTML(marker.infoWindow);
+      console.log(marker.infoWindow)
 
       // Create a HTML element for your custom marker
       const element = document.createElement('div');
