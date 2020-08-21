@@ -19,7 +19,7 @@
           <i class="mt-1 mb-4 far fa-calendar-alt" style="font-size: 25px"></i>
           <h4 class="mt-2 mb-4 font-weight-bold ml-3">Réservations</h4>
         </div>
-        <% castle.reservations.reverse_each do |reservation| %>
+        <% castle.reservations.order(created_at: :desc).each do |reservation| %>
 
           <div class="card-trip-infos align-items-center checkbox">
 
