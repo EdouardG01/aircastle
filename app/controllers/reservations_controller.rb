@@ -31,14 +31,14 @@ class ReservationsController < ApplicationController
     @reservation = Reservation.find(params[:id])
     @reservation.status = "accepted"
     @reservation.save!
-    redirect_to owner_castles_path
+    redirect_to owner_castles_path(anchor: "reservation-#{@reservation.id}")
   end
 
   def decline
     @reservation = Reservation.find(params[:id])
     @reservation.status = "declined"
     @reservation.save!
-    redirect_to owner_castles_path
+    redirect_to owner_castles_path(anchor: "reservation-#{@reservation.id}")
   end
 
   private

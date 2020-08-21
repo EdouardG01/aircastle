@@ -1,0 +1,45 @@
+
+.checkbox p {
+  font-size: 18px;
+}
+
+.accept {
+  font-size: 25px;
+  color: #7EDF88;
+}
+
+.decline {
+  font-size: 25px;
+  color: #E34515;
+}
+
+.accepted {
+  width: 120px;
+  color: #7EDF88;
+  border: solid 2px #7EDF88;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.declined {
+  width: 120px;
+  color: #E34515;
+  border: solid 2px #E34515;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.pending {
+  width: 120px;
+  color: black;
+  border: solid 2px black;
+  border-radius: 4px;
+  padding: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+
