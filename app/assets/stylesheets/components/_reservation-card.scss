@@ -54,6 +54,7 @@
   justify-content: space-between;
   align-items: flex-start;
   margin:3%;
+  margin-top: 6%;
 }
 
 .far {
@@ -63,9 +64,16 @@
 
 }
 
-.fas {
+.fa-clock:before {
+  content: "\f017";
   font-size: 35px;
-  color:rgba(255, 96, 69,.8);
+  color:rgba(255, 96, 69,.6);
+}
+
+.fa-euro-sign:before {
+  content: "\f153";
+  font-size: 35px;
+  color:rgba(255, 96, 69,.6);
 }
 
 .calendar {
