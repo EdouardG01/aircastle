@@ -11,8 +11,11 @@ class CastlesController < ApplicationController
       OR users.first_name ILIKE :query \
       OR users.last_name ILIKE :query \
       "
+
       @castles = @castles.joins(:user).where(sql_query, query: "%#{params[:query]}%")
     end
+
+
     @markers = @castles.map do |castle|
       {
         lat: castle.latitude,
