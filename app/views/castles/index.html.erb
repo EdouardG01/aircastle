@@ -9,8 +9,9 @@
           <img style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path castle.photo.key, height: 300, width: 400, crop: :fill %>')">
           <div class="card-product-infos">
             <h2><%= castle.name.capitalize %></h2>
-            <p><%= castle.description.capitalize %></p>
-            <p><%= castle.price_per_day %> € par jour.</p>
+            <p>Proposé par <%= castle.user.first_name.capitalize %> <%= castle.user.last_name.capitalize %></p>
+            <p class="card-text-index-center"><%= castle.description.capitalize %></p>
+            <h4 class="card-text-price-right card-text-index-center mb-0"><strong><%= castle.price_per_day %> € / jour</strong></h4>
           </div>
         </div>
       <% end %>
