@@ -2,8 +2,12 @@
 
 .map_container  {
   display: flex;
-
 }
+
+.main-container {
+  display: flex;
+}
+
 .card-category {
   background-size: cover;
   background-position: center;
@@ -35,7 +39,6 @@
 }
 
 .card-link {
-  position: absolute;
   text-decoration: none;
   top: 0;
   bottom: 0;
@@ -43,25 +46,34 @@
   width: 100%;
   color: white;
 }
+.card-link-index {
+  text-decoration: none;
+  color: black;
+}
 //////CARD PRODUCT/////
 
 .card-container-index  {
-  display: inline-block;
-  grid-template-columns: 2fr 1fr;
+  // display: inline-block;
+  // grid-template-columns: 1fr 1fr;
   border-radius: 25px;
+  a:hover {
+    text-decoration: none;
+    color: black;
+  }
 }
 
 .card-product {
   overflow: hidden;
   height: 170px;
-  width: 55%;
+  width: 95%;
   background: white;
   box-shadow: 0 0 0px rgba(0,0,0,0.2);
-  display: -webkit-inline-box;
+  display: -webkit-box;
   align-items: center;
-  margin: 15px;
+  margin: 0 15px 15px 15px;
   border-style: none;
   border-radius: 25px;
+
 }
 
 .card-product img {
@@ -90,6 +102,11 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  width: 400px;
+}
+
+.card-product-infos {
+
 }
 //////CARD TRIP///////
 

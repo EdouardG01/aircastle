@@ -8,7 +8,11 @@
 }
 
 #map {
+  width: 45%;
   position: sticky;
+  top: 100px;
+  right: 0px;
+  border-radius: 25px;
 }
 
 
