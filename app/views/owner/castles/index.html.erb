@@ -1,43 +1,67 @@
 <div class="container text-center">
   <h1 class="font-weight-bold my-4">Mes châteaux</h1>
-  <%= link_to "Ajouter un château", new_castle_path, :class => "btn btn-success" %>
+  <%= link_to "Ajouter un château", new_castle_path, :class => "btn-outline-light" %>
 </div>
 
 <% @castles.each_with_index do |castle, index| %>
 
   <div class="container">
     <div class="card-trip">
-      <h2 class="text-center mb-2"><%= castle.name.capitalize %></h2>
-
       <% if castle.photo.attached? %>
         <%= cl_image_tag castle.photo.key, height: 300, width: 400, crop: :fill %>
-      <% else %>
-        <p>Erreur : pas de photos</p>
       <% end %>
+      <h1 class="text-center mt-4 mb-4 font-weight-bold"><%= castle.name.upcase %></h1>
+
 
       <% index + 1%><% link_to castle.name.capitalize, castle_path(castle), :class => "text-dark" %>
 
-        <h4 class="mt-4 mb-3">Demandes de réservation :</h4>
-        <% castle.reservations.each do |reservation| %>
+        <div class="d-flex align-items-center">
+          <i class="mt-1 mb-4 far fa-calendar-alt" style="font-size: 25px"></i>
+          <h4 class="mt-2 mb-4 font-weight-bold ml-3">Réservations</h4>
+        </div>
+        <% castle.reservations.order(created_at: :desc).each do |reservation| %>
 
-          <div class="card-trip-infos align-items-center">
+          <div class="card-trip-infos align-items-center checkbox">
 
-            <i class="fas fa-circle"></i>
-            <p>Réservé par <strong><%= reservation.user.last_name.capitalize %> <%= reservation.user.first_name.capitalize %></strong></p>
+            <div class="">
+              <% if  reservation.status == "pending" %>
+                <p class="pending">En attente</p>
+                <!-- <i class="far fa-square" style="font-size: 20px"></i> -->
+              <% elsif reservation.status == "accepted" %>
+                <p class="accepted">Acceptée</p>
+                <!-- <i class="fas fa-square text-success" style="font-size: 20px"></i> -->
+              <% else %>
+                <p class="declined">Refusée</p>
+                <!-- /*<i class="fas fa-square text-danger" style="font-size: 20px"></i>*/ -->
+              <% end %>
+            </div>
+
+            <div class="">
+              <p>Réservé par <strong><%= reservation.user.last_name.capitalize %> <%= reservation.user.first_name.capitalize %></strong></p>
+            </div>
+
+            <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
+            <div class="">
+              <p><%= temps %> jours</p>
+            </div>
+
             <% starting = reservation.starting_date.to_formatted_s(:long) %>
             <% ending = reservation.ending_date.to_formatted_s(:long) %>
 
-            <p><%= starting %> / <%= ending %></p>
-            <p>Prix total : <%= reservation.total_price %> €</p>
+            <div class="">
+              <p><%= starting %> <br> <%= ending %></p>
+            </div>
 
-            <% if  reservation.status == "pending" %>
-              <%= link_to icon("fa", "check"), accept_reservation_path(reservation), class: 'text-success tick-font mx-2', method: :patch, data: { confirm: "Etes-vous sûr d'accepter la réservation ?" } %>
-              <%= link_to icon("fas", "times"), decline_reservation_path(reservation), class: 'text-danger tick-font mx-2', method: :patch, data: { confirm: "Etes-vous sûr de refuser la réservation ?" } %>
-            <% elsif reservation.status == "accepted" %>
-              <i class="fas fa-check"></i>
-            <% else %>
-              <i class="fas fa-times"></i>
-            <% end %>
+
+             <div class="">
+              <p><strong><%= reservation.total_price %> €</strong></p>
+            </div>
+
+             <div id="reservation-<%= reservation.id %>" >
+                <!-- data: { confirm: "Etes-vous sûr de refuser la réservation ?" } -->
+                <%= link_to icon("far", "check-circle"), accept_reservation_path(reservation), class: 'text-success mx-2 accept', method: :patch, remote: true %>
+                <%= link_to icon("far", "times-circle"), decline_reservation_path(reservation), class: 'text-danger mx-2 decline', method: :patch, remote: true %>
+            </div>
 
         </div>
         <% end %>
