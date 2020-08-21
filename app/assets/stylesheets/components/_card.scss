@@ -172,6 +172,16 @@
   width: 20px;
 }
 
+.card-text-index-center {
+  padding-top: 8px;
+}
+
+.card-text-price-right {
+  text-align: right;
+  font-size: 15px;
+}
+
+
 // Smallest device
 @media (min-width: 100px) and (max-width: 575px) {
   .cards {
