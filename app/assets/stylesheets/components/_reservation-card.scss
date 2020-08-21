@@ -44,14 +44,31 @@
 .card-reservation p {
   font-size: 20px;
   opacity: .7;
+  margin-bottom: 7%
 }
 
 
 .card-reservation .card-reservation-infos {
-  padding: 16px;
+  padding: 1%;
   display: grid;
   justify-content: space-between;
   align-items: flex-start;
-  margin:4%;
+  margin:3%;
 }
 
+.far {
+  font-size: 35px;
+  color:rgba(255, 96, 69,.6);
+  padding-bottom: 17px;
+
+}
+
+.fas {
+  font-size: 35px;
+  color:rgba(255, 96, 69,.8);
+}
+
+.calendar {
+  align-items: center;
+  display:flex;
+}
