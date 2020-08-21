@@ -21,11 +21,19 @@
                 <div class="card-reservation-show">
                  <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
                   <div class="card-reservation-infos">
-
-                    <p> Du  <%= starting %> <br> au <%= ending %></p>
-                    <p><%= temps %> jours / <%= reservation.total_price %> €</p>
-                    <p>Statut : <%= status %></p>
-                    <br>
+                    <div class="calendar">
+                      <i class="far fa-calendar-alt"></i>
+                      <p> &nbsp;&nbsp;&nbsp;&nbsp;Du <%= starting %> <br> &nbsp;&nbsp;&nbsp;&nbsp;au</i> <%= ending %></p>
+                    </div>
+                    <div class="price">
+                      <br>
+                      <p class="d-flex align-items-center"><i class="fas fa-clock mr-4"></i><span> <%= temps %> jours</span></p>
+                      <br>
+                      <p class="d-flex align-items-center"><i class="fas fa-euro-sign mr-4"></i>&nbsp;&nbsp;<span> <%= reservation.total_price %> €</span></p>
+                      <br>
+                    </div>
+                      <p><strong> <%= status %></strong></p>
+                      <br>
                   </div>
                 </div>
             </div>

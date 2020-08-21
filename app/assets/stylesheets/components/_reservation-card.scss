@@ -44,6 +44,7 @@
 .card-reservation p {
   font-size: 20px;
   opacity: .7;
+  margin-bottom: 7%
 }
 
 
@@ -54,4 +55,25 @@
   align-items: flex-start;
   margin:4%;
 }
+
+.far {
+  font-size: 35px;
+  color:rgba(255, 96, 69,.6);
+  padding-bottom: 17px;
+
+}
+
+.fas {
+  font-size: 35px;
+  color:rgba(255, 96, 69,.8);
+}
+
+.calendar {
+  align-items: center;
+  display:flex;
+}
+
+
+
+
 
