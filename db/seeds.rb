@@ -22,11 +22,14 @@ puts "creating database"
   user.save!
 end
 
+descriptions = ["Un château haut en couleur qui vous permettra de partager de supers moments en famille", "Si vous avez une piscine, ce château répondra à vos attentes. Je l'ai utilisé pour plusieurs anniversaires. Location avec compresseur.", "A vous de choisir, ce château à tout les atouts pour passer des moments inoubliables.", "N'attendez plus! dès que vous aurez essayé ce château, vous ne pourrez plus vous en passer!", "Un chateau robuste et génial pour parents et enfants. Au top lors de soirées avec les collègues de travail.", "Choisir ce château, c'est l'adopter! Rien de tel qu'un week-end en famille à rebondir de joie! ce château répond à norme CE. Nous mettons à votre disposition un compresseur.", "Le château qui changera votre vie à tout jamais! Rebondir ne sera plus un problème pour vous. Ulra résitant, ce château répond à toutes les normes de sécurité en vigueur.",
+  "Quoi de mieux que vivre un moment cool en famille. Barbecue, piscine, château... Ajouter du fun à vos week-end! Ce château sera vraiment à la hauteur de vos attentes.", "Mes enfants me répètent souvent que ce château est vraiment formidable. Sauter toute la journée avec ce chateau renforcé, sera la meilleure expérience que vous pourrez vivre.", "Château facile à mettre en place, temps de gonflage 30 min. Il sera idéal pour tout vos événements.", "Ce château et 'LE' château qu'il vous faut. Spacieux, coloré et fiable, il vous permettra de transformer vos weekend et vos vacances en pur moment de bonheur.", "Château fort, château d'eau ou château gonflable ? Choisissez THE château gonflable, le best des bests. Il est énorme 10m x 6m, il accueil aussi bien les enfants que les parents."]
+
 12.times.with_index do |index|
   castle_image = File.open(Rails.root.join("db/fixtures/castles/castle#{index + 1}.jpg"))
   castle = Castle.new(
     name:  Faker::TvShows::GameOfThrones.house,
-    description: Faker::TvShows::GameOfThrones.quote,
+    description: descriptions[index],
     address: Faker::TvShows::GameOfThrones.city,
     price_per_day: rand(10..20)
   )
