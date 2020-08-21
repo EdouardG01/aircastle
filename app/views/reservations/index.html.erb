@@ -3,14 +3,7 @@
   <h1 class="text-center my-2">Mes réservations</h1>
 
     <% @reservations.reverse_each do |reservation| %>
-        <% status = "Erreur" %>
-        <% if reservation.status == "pending" %>
-          <% status = "En attente de validation" %>
-        <% elsif reservation.status == "accepted" %>
-          <% status = "Accepté" %>
-        <% elsif reservation.status == "declined" %>
-          <% status = "Refusé" %>
-        <% end %>
+
 
         <% temps = (reservation.ending_date - reservation.starting_date).to_i %>
         <% starting = reservation.starting_date.to_formatted_s(:long) %>
@@ -22,8 +15,7 @@
                  <%= cl_image_tag reservation.castle.photo.key, height: 300, width: 400, crop: :fill %>
                   <div class="card-reservation-infos">
                     <div class="calendar">
-                      <i class="far fa-calendar-alt"></i>
-                      <p> &nbsp;&nbsp;&nbsp;&nbsp;Du <%= starting %> <br> &nbsp;&nbsp;&nbsp;&nbsp;au</i> <%= ending %></p>
+                      <p class="d-flex align-items-center"> <i class="far fa-calendar-alt mr-4"></i> <%= starting %> <br> </i> <%= ending %></p>
                     </div>
                     <div class="price">
                       <br>
@@ -32,7 +24,13 @@
                       <p class="d-flex align-items-center">&nbsp;<i class="fas fa-euro-sign mr-4"></i>&nbsp;<span> <%= reservation.total_price %> €</span></p>
                       <br>
                     </div>
-                      <p><strong> <%= status %></strong></p>
+                        <% if reservation.status == "pending" %>
+                          <p class="pending">En attente</p>
+                        <% elsif reservation.status == "accepted" %>
+                          <p class="accepted">Acceptée</p>
+                        <% elsif reservation.status == "declined" %>
+                          <p class="declined">Refusée</p>
+                        <% end %>
                       <br>
                   </div>
                 </div>
