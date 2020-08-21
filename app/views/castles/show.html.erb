@@ -8,11 +8,11 @@
             <%= render './reservations/new-reservation', castle: @castle, reservation: @reservation %>
             </div>
           <br>
-          <div class="card-trip-infos">
+          <div class="card-trip-infos align-items-center">
             <div>
-              <p> <%= @castle.description %></p>
+              <p style="width: 600px"> <%= @castle.description %></p>
             </div>
-            <h2 class="card-trip-pricing"><%= @castle.price_per_day %> € /Jour</h2>
+            <h2 class="card-trip-pricing mr-5"><%= @castle.price_per_day %> € /Jour &nbsp;</h2>
           </div>
     </div>
 </div>
